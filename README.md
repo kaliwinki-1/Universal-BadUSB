@@ -1,19 +1,19 @@
-This is not a statement; it is something I am studying.
-None of what is mentioned below has been validated.
+#This is not a statement; it is something I am studying.
+#None of what is mentioned below has been 100% validated.
 Work in progress.
 
 
 
 
-🛠️ Universal BadUSB: The Base64-Only Framework
+#🛠️ Universal BadUSB: The Base64-Only Framework
 The ultimate solution for zero-fail payload execution on any Windows target (AZERTY, QWERTY, QWERTZ).
 
-📖 Project Philosophy
+#📖 Project Philosophy
 The biggest enemy of a BadUSB script is the target's Keyboard Layout. A script written for a US keyboard will systematically fail on a French (AZERTY) or German (QWERTZ) machine because special characters (:, /, \, $) are mapped differently.
 
 This project relies on a single, powerful pillar: Systematic Base64 Encoding. By converting PowerShell commands into Base64 strings, we use only standard alphanumeric characters. These characters are located in the same physical positions on almost every Latin keyboard in the world, ensuring 100% typing accuracy.
 
-🌟 The "Magic" Flagship Script: Universal Language Switcher
+#🌟 The "Magic" Flagship Script: Universal Language Switcher
 This is the core script of the project. It uses the Base64 technique to force Windows to adopt the US-International layout, regardless of the victim's initial configuration.
 
 Why is this script essential?
@@ -25,9 +25,9 @@ Plaintext
 [REM --- UNIVERSAL LANGUAGE SWITCHER (BASE64 METHOD) ---
 REM Target: Windows 10 / 11
 REM Reliability: 100% (Tested on AZERTY, QWERTY, QWERTZ)
-REM Description: Forces Windows to US-International using alphanumeric characters only.
+REM Description: Forces Windows to US-International using alphanumeric characters only.]
 
-DELAY 3000
+[DELAY 3000
 GUI r
 DELAY 500
 STRING powershell -e JABsAD0ATgBlAHcALQBXAGkAbgBVAAc2AGUAcgBMAGEAbgBnAHUAYQBnAGUATABpAHMAdAAgAGUAbgAtAFUAUwA7ACQAbABbADAAXQAuAEkAbgBwAHUAdABNAAGUAdABoAG8AZABUAGkAcABzAC4AQwBsAGUAYQByACgAKQA7ACQAbABbADAAXQAuAEkAbgBwAHUAdABNAAGUAdABoAG8AZABUAGkAcABzAC4AQQBkAGQAKAAnADAANAAwADkAOgAwADAAMAAyADAANAAwADkAJwApADsAUwBlAHQALQBXAGkAbgBVAAc2AGUAcgBMAGEAbgBnAHUAYQBnAGUATABpAHMAdAAgACQAbAAgAC0ARgBvAHIAYwBlAA==
@@ -102,17 +102,19 @@ Avant de lancer vos attaques complexes, ce script "normalise" l'environnement. U
 
 Fichier : Universal_Switch_International.txt
 
-Plaintext
+[Plaintext
 REM --- UNIVERSAL LANGUAGE SWITCHER (BASE64 METHOD) ---
 REM Target: Windows 10 / 11
 REM Author: [Ton Nom / Pseudo]
-REM Reliability: 100% (Tested on AZERTY, QWERTY, QWERTZ)
+REM Reliability: 100% (Tested on AZERTY, QWERTY, QWERTZ)]
 
-DELAY 3000
+[DELAY 3000
 GUI r
 DELAY 500
 STRING powershell -e JABsAD0ATgBlAHcALQBXAGkAbgBVAAc2AGUAcgBMAGEAbgBnAHUAYQBnAGUATABpAHMAdAAgAGUAbgAtAFUAUwA7ACQAbABbADAAXQAuAEkAbgBwAHUAdABNAAGUAdABoAG8AZABUAGkAcABzAC4AQwBsAGUAYQByACgAKQA7ACQAbABbADAAXQAuAEkAbgBwAHUAdABNAAGUAdABoAG8AZABUAGkAcABzAC4AQQBkAGQAKAAnADAANAAwADkAOgAwADAAMAAyADAANAAwADkAJwApADsAUwBlAHQALQBXAGkAbgBVAAc2AGUAcgBMAGEAbgBnAHUAYQBnAGUATABpAHMAdAAgACQAbAAgAC0ARgBvAHIAYwBlAA==
-ENTER
+ENTER]
+
+
 🛠️ Comment ça fonctionne ? (La Technique)
 1. L'immunité du Base64
 Le Base64 transforme une commande comme Write-Host "L'attaque a réussi !" en une suite de lettres simples comme VwByAGkAdABlAC0ASABvAHMAdAA.... Comme il n'y a plus de symboles complexes, le BadUSB ne fait plus d'erreurs de frappe.
