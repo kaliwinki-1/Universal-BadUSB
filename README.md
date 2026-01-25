@@ -1,3 +1,10 @@
+This is not a statement; it is something I am studying.
+None of what is mentioned below has been validated.
+Work in progress.
+
+
+
+
 🛠️ Universal BadUSB: The Base64-Only Framework
 The ultimate solution for zero-fail payload execution on any Windows target (AZERTY, QWERTY, QWERTZ).
 
