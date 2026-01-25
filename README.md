@@ -1,13 +1,15 @@
 Universal BadUSB: The Base64-Only Framework
 The Zero-Fail Standard for HID Injection
-## Project Overview The single greatest point of failure in BadUSB (Human Interface Device) attacks is Keyboard Layout Incompatibility. A payload designed for a US (QWERTY) keyboard will catastrophically fail on a French (AZERTY), German (QWERTZ), or Spanish system. Symbols like \, /, :, _, and $ are located on different physical keys across the world.
+## Project Overview
+The single greatest point of failure in BadUSB (Human Interface Device) attacks is Keyboard Layout Incompatibility. A payload designed for a US (QWERTY) keyboard will catastrophically fail on a French (AZERTY), German (QWERTZ), or Spanish system. Critical symbols like \, /, :, _, and $ are located on different physical keys across the world.
 
-This repository provides a Hardware-Agnostic Framework to guarantee 100% execution reliability on any Windows target, regardless of its language or keyboard configuration.
+This repository provides a Hardware-Agnostic Framework (Flipper Zero, Rubber Ducky, DigiSpark, ESP32) to guarantee 100% execution reliability on any Windows target, regardless of its language or keyboard configuration.
 
-## The Philosophy: The "Common Denominator" Instead of trying to guess the target's layout, we bypass the layout entirely. We utilize Systematic Base64 Encoding. The Base64 character set (A-Z, a-z, 0-9, +, /) shares the same physical key locations on 99% of Latin-script keyboards. By encoding payloads into Base64 and injecting them via PowerShell's native decoder, we achieve universal compatibility.
+## The Philosophy: The "Common Denominator"
+Instead of trying to guess the target's layout, we bypass the layout entirely. We utilize Systematic Base64 Encoding. The Base64 character set (A-Z, a-z, 0-9, +, /) shares the same physical key locations on 99% of Latin-script keyboards. By encoding payloads into Base64 and injecting them via PowerShell's native decoder, we achieve universal compatibility.
 
 ## Phase 1: The Environment Normalizer
-Before running any complex payload, you must normalize the target environment. This script forces Windows to recognize the US-International layout using a Base64-encoded command.
+Before running any complex payload, you must normalize the target environment. This script forces Windows to recognize the US-International layout using a Base64-encoded command. This "cleans" the environment for any future scripts.
 
 File: 01_Environment_Normalizer.txt
 
@@ -46,11 +48,14 @@ def generate_universal_payload(command):
 
 if __name__ == "__main__":
     print("--- UNIVERSAL BADUSB ENCODER ---")
-    cmd = input("Enter your PowerShell command: ")
-    print("\n[+] Your Universal Injection String:")
-    print("-" * 50)
-    print(generate_universal_payload(cmd))
-    print("-" * 50)
+    try:
+        cmd = input("Enter your PowerShell command: ")
+        print("\n[+] Your Universal Injection String:")
+        print("-" * 50)
+        print(generate_universal_payload(cmd))
+        print("-" * 50)
+    except KeyboardInterrupt:
+        print("\nExiting...")
 ## Technical Deep Dive
 Why does this work?
 
@@ -60,17 +65,18 @@ The Base64 Solution: The command powershell -e requires no special symbols. The 
 
 OS-Level Decoding: Windows handles the translation. The BadUSB types safe characters, and the Operating System reconstructs the complex symbols (like http:// or System32) internally.
 
-🇫🇷 Version Française
 Universal BadUSB : Le Framework 100% Base64
 La Solution Standard pour l'Injection HID sans Échec
-## Présentation du Projet Le point de défaillance majeur des attaques BadUSB (Human Interface Device) est l'incompatibilité des dispositions de clavier. Un payload conçu pour un clavier américain (QWERTY) échouera catastrophiquement sur un système français (AZERTY), allemand ou espagnol. Les symboles critiques comme \, /, :, _, et $ sont situés sur des touches différentes selon les pays.
+## Présentation du Projet
+Le point de défaillance majeur des attaques BadUSB (Human Interface Device) est l'incompatibilité des dispositions de clavier. Un payload conçu pour un clavier américain (QWERTY) échouera catastrophiquement sur un système français (AZERTY), allemand ou espagnol. Les symboles critiques comme \, /, :, _, et $ sont situés sur des touches différentes selon les pays.
 
-Ce dépôt fournit un Framework Universel garantissant une exécution à 100% sur n'importe quelle cible Windows, quelle que soit sa langue ou sa configuration clavier.
+Ce dépôt fournit un Framework Universel (compatible Flipper Zero, Rubber Ducky, DigiSpark, ESP32) garantissant une exécution à 100% sur n'importe quelle cible Windows, quelle que soit sa langue ou sa configuration clavier.
 
-## La Philosophie : Le "Dénominateur Commun" Au lieu de tenter de deviner la langue de la cible, nous contournons totalement le problème du clavier. Nous utilisons l'Encodage Base64 Systématique. Le jeu de caractères Base64 (A-Z, a-z, 0-9, +, /) partage les mêmes emplacements physiques sur 99% des claviers latins. En convertissant les payloads en Base64 et en les injectant via le décodeur natif de PowerShell, nous obtenons une compatibilité universelle.
+## La Philosophie : Le "Dénominateur Commun"
+Au lieu de tenter de deviner la langue de la cible, nous contournons totalement le problème du clavier. Nous utilisons l'Encodage Base64 Systématique. Le jeu de caractères Base64 (A-Z, a-z, 0-9, +, /) partage les mêmes emplacements physiques sur 99% des claviers latins. En convertissant les payloads en Base64 et en les injectant via le décodeur natif de PowerShell, nous obtenons une compatibilité universelle.
 
 ## Phase 1 : Le Normaliseur d'Environnement
-Avant de lancer un payload complexe, vous devez normaliser l'environnement de la cible. Ce script force Windows à reconnaître la disposition US-International en utilisant une commande encodée en Base64.
+Avant de lancer un payload complexe, vous devez normaliser l'environnement de la cible. Ce script force Windows à reconnaître la disposition US-International en utilisant une commande encodée en Base64. Cela "nettoie" l'environnement pour les scripts futurs.
 
 Fichier : 01_Environment_Normalizer.txt
 
@@ -109,11 +115,14 @@ def generate_universal_payload(command):
 
 if __name__ == "__main__":
     print("--- UNIVERSAL BADUSB ENCODER ---")
-    cmd = input("Entrez votre commande PowerShell : ")
-    print("\n[+] Votre Chaîne d'Injection Universelle :")
-    print("-" * 50)
-    print(generate_universal_payload(cmd))
-    print("-" * 50)
+    try:
+        cmd = input("Entrez votre commande PowerShell : ")
+        print("\n[+] Votre Chaîne d'Injection Universelle :")
+        print("-" * 50)
+        print(generate_universal_payload(cmd))
+        print("-" * 50)
+    except KeyboardInterrupt:
+        print("\nFermeture...")
 ## Analyse Technique
 Pourquoi cela fonctionne-t-il ?
 
