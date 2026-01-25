@@ -15,7 +15,7 @@ Before launching complex attacks, this script "normalizes" the environment. Once
 File: Universal_Switch_International.txt
 
 Plaintext
-REM --- UNIVERSAL LANGUAGE SWITCHER (BASE64 METHOD) ---
+[REM --- UNIVERSAL LANGUAGE SWITCHER (BASE64 METHOD) ---
 REM Target: Windows 10 / 11
 REM Reliability: 100% (Tested on AZERTY, QWERTY, QWERTZ)
 REM Description: Forces Windows to US-International using alphanumeric characters only.
@@ -24,7 +24,8 @@ DELAY 3000
 GUI r
 DELAY 500
 STRING powershell -e JABsAD0ATgBlAHcALQBXAGkAbgBVAAc2AGUAcgBMAGEAbgBnAHUAYQBnAGUATABpAHMAdAAgAGUAbgAtAFUAUwA7ACQAbABbADAAXQAuAEkAbgBwAHUAdABNAAGUAdABoAG8AZABUAGkAcABzAC4AQwBsAGUAYQByACgAKQA7ACQAbABbADAAXQAuAEkAbgBwAHUAdABNAAGUAdABoAG8AZABUAGkAcABzAC4AQQBkAGQAKAAnADAANAAwADkAOgAwADAAMAAyADAANAAwADkAJwApADsAUwBlAHQALQBXAGkAbgBVAAc2AGUAcgBMAGEAbgBnAHUAYQBnAGUATABpAHMAdAAgACQAbAAgAC0ARgBvAHIAYwBlAA==
-ENTER
+ENTER]
+
 🛠️ How It Works (The Technique)
 1. Base64 Immunity
 Base64 transforms a command like Write-Host "Success!" into a simple string like VwByAGkAdABlAC0ASABvAHMAdAA.... Since there are no more complex symbols or shifted characters, the BadUSB no longer makes "typos."
@@ -43,7 +44,7 @@ Inject it into a DuckyScript using the powershell -e prefix.
 
 Manual Conversion Example (PowerShell):
 PowerShell
-# Input your command here
+[# Input your command here
 $cmd = 'Start-Process "https://google.com"'
 
 # Convert to Base64 (UTF-16LE is required for -e)
@@ -53,7 +54,7 @@ $base64 = [Convert]::ToBase64String($bytes)
 # Your final BadUSB string:
 echo "powershell -e $base64"
 ⚙️ Hardware Recommendations (UltraWiFiDuck)
-To ensure maximum compatibility:
+To ensure maximum compatibility:]
 
 Access your UltraWiFiDuck Web Interface.
 
